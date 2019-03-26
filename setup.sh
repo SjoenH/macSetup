@@ -86,22 +86,22 @@ apps=(
   amethyst
   android-studio
   appcleaner
+  brave-browser
   docker
   firefox
   google-chrome
-  brave-browser
-  licecap
-  spotify
-  iterm2
-  istat-menus
-  sublime-text
   iina
-  transmission
+  istat-menus
+  iterm2
+  licecap
   qlmarkdown
   qlstephen
-  suspicious-package
-  visual-studio-code
   spectacle
+  spotify
+  sublime-text
+  suspicious-package
+  transmission
+  visual-studio-code
 )
 
 # Install apps to /Applications
@@ -281,6 +281,15 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
+
+#Setting Dvorak as the keyboard layout
+cd ~/Downloads
+git clone https://github.com/myshov/xkbswitch-macosx.git xkbswitch-macosx
+cp xkbswitch-macosx/bin/xkbswitch /usr/local/bin
+#Todo: Might need to add it to zsh-path as well...?
+./xkbswitch-macosx/bin/xkbswitch -se Dvorak
+#Cleonup
+rm -rf ~/Downloads/xkbswitch-macosx
 
 killall Finder
 
