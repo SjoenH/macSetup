@@ -1,42 +1,42 @@
 if [ -e  ~/.ssh/id_rsa.pub ]
 then
-  echo -e "\n\033[0;32m Public key was found! \033[0m"
+  echo "\n\033[0;32m Public key was found! \033[0m"
 else
-  echo -e "\n\033[0;32m Public key was not found \033[0m"
-  echo -e "\n\033[0;32m Creating an SSH key for you...\033[0m"
+  echo "\n\033[0;32m Public key was not found \033[0m"
+  echo "\n\033[0;32m Creating an SSH key for you...\033[0m"
   ssh-keygen -t rsa
 fi
 
-echo -e "\n\033[0;32m Please add this public key to Github \n\033[0m"
-echo -e "\n\033[0;32m https://github.com/account/ssh \n\033[0m"
+echo "\n\033[0;32m Please add this public key to Github \n\033[0m"
+echo "\n\033[0;32m https://github.com/account/ssh \n\033[0m"
 read -p "Press [Enter] key after this..."
 
-echo -e "\n\033[0;32m Installing xcode-stuff \033[0m"
+echo "\n\033[0;32m Installing xcode-stuff \033[0m"
 xcode-select --install
 
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
-  echo -e "\n\033[0;32m Installing homebrew...\033[0m"
+  echo "\n\033[0;32m Installing homebrew...\033[0m"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update homebrew recipes
-echo -e "\n\033[0;32m Updating homebrew...\033[0m"
+echo "\n\033[0;32m Updating homebrew...\033[0m"
 brew update
 
-echo -e "\n\033[0;32m Installing Git... \033[0m"
+echo "\n\033[0;32m Installing Git... \033[0m"
 brew install git
 
-echo -e "\n\033[0;32m Git config \033[0m"
+echo "\n\033[0;32m Git config \033[0m"
 
 git config --global user.name "Henry Sjøen"
 git config --global user.email henry@kodekameraten.no
 
-echo -e "\n\033[0;32m Installing brew git utilities...\033[0m"
+echo "\n\033[0;32m Installing brew git utilities...\033[0m"
 brew install git-flow
 
-echo -e "\n\033[0;32m Installing other brew stuff...\033[0m"
+echo "\n\033[0;32m Installing other brew stuff...\033[0m"
 brew install tree
 brew install wget
 brew install mackup
@@ -48,36 +48,36 @@ npm install -g react-native-cli
 
 #@TODO install our custom fonts and stuff
 
-echo -e "\n\033[0;32m Cleaning up brew\033[0m"
+echo "\n\033[0;32m Cleaning up brew\033[0m"
 brew cleanup
 
-echo -e "\n\033[0;32m Installing homebrew cask\033[0m"
+echo "\n\033[0;32m Installing homebrew cask\033[0m"
 brew install caskroom/cask/brew-cask
 
 # TODO: Make some dotfile-config
-# echo -e "\n\033[0;32m Copying dotfiles from Github"
+# echo "\n\033[0;32m Copying dotfiles from Github"
 # cd ~
 # git clone git@github.com:sjoenH/dotfiles.git .dotfiles
 # cd .dotfiles
 # rake
 # cd ~
 
-# echo -e "\n\033[0;32m Grunting it up"
+# echo "\n\033[0;32m Grunting it up"
 # npm install -g grunt-cli
 
 #Install Zsh & Oh My Zsh
-echo -e "\n\033[0;32m Installing Oh My ZSH...\033[0m"
+echo "\n\033[0;32m Installing Oh My ZSH...\033[0m"
 curl -L http://install.ohmyz.sh | sh
 
-# echo -e "\n\033[0;32m Setting up Oh My Zsh theme..."
+# echo "\n\033[0;32m Setting up Oh My Zsh theme..."
 # cd  /Users/bradparbs/.oh-my-zsh/themes
 # curl https://gist.githubusercontent.com/bradp/a52fffd9cad1cd51edb7/raw/cb46de8e4c77beb7fad38c81dbddf531d9875c78/brad-muse.zsh-theme > brad-muse.zsh-theme
 
-echo -e "\n\033[0;32m Setting up Zsh plugins...\033[0m"
+echo "\n\033[0;32m Setting up Zsh plugins...\033[0m"
 cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-echo -e "\n\033[0;32m Setting ZSH as shell...\033[0m"
+echo "\n\033[0;32m Setting ZSH as shell...\033[0m"
 chsh -s /bin/zsh
 
 # Apps
@@ -106,7 +106,7 @@ apps=(
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-echo -e "\n\033[0;32m installing apps with Cask... \033[0m"
+echo "\n\033[0;32m installing apps with Cask... \033[0m"
 brew cask install --appdir="/Applications" ${apps[@]}
 
 brew cask alfred link
@@ -114,13 +114,13 @@ brew cask alfred link
 brew cask cleanup
 brew cleanup
 
-# echo -e "\n\033[0;32m Please setup and sync Dropbox, and then run this script again."
+# echo "\n\033[0;32m Please setup and sync Dropbox, and then run this script again."
 # read -p "Press [Enter] key after this..."
 
-# echo -e "\n\033[0;32m Restoring setup from Mackup..."
+# echo "\n\033[0;32m Restoring setup from Mackup..."
 #mackup restore @TODO uncomment
 
-echo -e "\n\033[0;32m Setting some Mac settings... \033[0m"
+echo "\n\033[0;32m Setting some Mac settings... \033[0m"
 
 #"Disabling system-wide resume"
 # defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
@@ -295,4 +295,4 @@ osascript -e 'tell app "System Events" to tell appearance preferences to set dar
 
 killall Finder
 
-echo -e "\n\033[0;32m All done! \033[0m"
+echo "\n\033[0;32m All done! \033[0m"
