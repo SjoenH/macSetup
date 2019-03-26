@@ -291,6 +291,9 @@ cp xkbswitch-macosx/bin/xkbswitch /usr/local/bin
 #Cleonup
 rm -rf ~/Downloads/xkbswitch-macosx
 
+# Set dark mode
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+
 killall Finder
 
 
