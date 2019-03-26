@@ -1,42 +1,42 @@
 if [ -e  ~/.ssh/id_rsa.pub ]
 then
-  echo "Public key was found!"
+  echo -e "\n\033[0;32m Public key was found! \033[0m"
 else
-  echo "Public key was not found"
-  echo "Creating an SSH key for you..."
+  echo -e "\n\033[0;32m Public key was not found \033[0m"
+  echo -e "\n\033[0;32m Creating an SSH key for you...\033[0m"
   ssh-keygen -t rsa
 fi
 
-echo "Please add this public key to Github \n"
-echo "https://github.com/account/ssh \n"
+echo -e "\n\033[0;32m Please add this public key to Github \n\033[0m"
+echo -e "\n\033[0;32m https://github.com/account/ssh \n\033[0m"
 read -p "Press [Enter] key after this..."
 
-echo "Installing xcode-stuff"
+echo -e "\n\033[0;32m Installing xcode-stuff \033[0m"
 xcode-select --install
 
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
-  echo "Installing homebrew..."
+  echo -e "\n\033[0;32m Installing homebrew...\033[0m"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update homebrew recipes
-echo "Updating homebrew..."
+echo -e "\n\033[0;32m Updating homebrew...\033[0m"
 brew update
 
-echo "Installing Git..."
+echo -e "\n\033[0;32m Installing Git... \033[0m"
 brew install git
 
-echo "Git config"
+echo -e "\n\033[0;32m Git config \033[0m"
 
 git config --global user.name "Henry Sjøen"
 git config --global user.email henry@kodekameraten.no
 
-echo "Installing brew git utilities..."
+echo -e "\n\033[0;32m Installing brew git utilities...\033[0m"
 brew install git-flow
 
-echo "Installing other brew stuff..."
+echo -e "\n\033[0;32m Installing other brew stuff...\033[0m"
 brew install tree
 brew install wget
 brew install mackup
@@ -48,36 +48,36 @@ npm install -g react-native-cli
 
 #@TODO install our custom fonts and stuff
 
-echo "Cleaning up brew"
+echo -e "\n\033[0;32m Cleaning up brew\033[0m"
 brew cleanup
 
-echo "Installing homebrew cask"
+echo -e "\n\033[0;32m Installing homebrew cask\033[0m"
 brew install caskroom/cask/brew-cask
 
 # TODO: Make some dotfile-config
-# echo "Copying dotfiles from Github"
+# echo -e "\n\033[0;32m Copying dotfiles from Github"
 # cd ~
 # git clone git@github.com:sjoenH/dotfiles.git .dotfiles
 # cd .dotfiles
 # rake
 # cd ~
 
-# echo "Grunting it up"
+# echo -e "\n\033[0;32m Grunting it up"
 # npm install -g grunt-cli
 
 #Install Zsh & Oh My Zsh
-echo "Installing Oh My ZSH..."
+echo -e "\n\033[0;32m Installing Oh My ZSH...\033[0m"
 curl -L http://install.ohmyz.sh | sh
 
-# echo "Setting up Oh My Zsh theme..."
+# echo -e "\n\033[0;32m Setting up Oh My Zsh theme..."
 # cd  /Users/bradparbs/.oh-my-zsh/themes
 # curl https://gist.githubusercontent.com/bradp/a52fffd9cad1cd51edb7/raw/cb46de8e4c77beb7fad38c81dbddf531d9875c78/brad-muse.zsh-theme > brad-muse.zsh-theme
 
-echo "Setting up Zsh plugins..."
+echo -e "\n\033[0;32m Setting up Zsh plugins...\033[0m"
 cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-echo "Setting ZSH as shell..."
+echo -e "\n\033[0;32m Setting ZSH as shell...\033[0m"
 chsh -s /bin/zsh
 
 # Apps
@@ -106,7 +106,7 @@ apps=(
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-echo "installing apps with Cask..."
+echo -e "\n\033[0;32m installing apps with Cask... \033[0m"
 brew cask install --appdir="/Applications" ${apps[@]}
 
 brew cask alfred link
@@ -114,13 +114,13 @@ brew cask alfred link
 brew cask cleanup
 brew cleanup
 
-# echo "Please setup and sync Dropbox, and then run this script again."
+# echo -e "\n\033[0;32m Please setup and sync Dropbox, and then run this script again."
 # read -p "Press [Enter] key after this..."
 
-# echo "Restoring setup from Mackup..."
+# echo -e "\n\033[0;32m Restoring setup from Mackup..."
 #mackup restore @TODO uncomment
 
-echo "Setting some Mac settings..."
+echo -e "\n\033[0;32m Setting some Mac settings... \033[0m"
 
 #"Disabling system-wide resume"
 # defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
@@ -281,7 +281,6 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-
 #Setting Dvorak as the keyboard layout
 cd ~/Downloads
 git clone https://github.com/myshov/xkbswitch-macosx.git xkbswitch-macosx
@@ -296,7 +295,4 @@ osascript -e 'tell app "System Events" to tell appearance preferences to set dar
 
 killall Finder
 
-
-echo "Done!"
-
-#@TODO install vagrant and sites folder
+echo -e "\n\033[0;32m All done! \033[0m"
