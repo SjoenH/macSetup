@@ -1,4 +1,6 @@
+# Set dark mode
 osascript -e 'tell application "Terminal" to set current settings of window 1 to settings set "pro"'
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
 clear
 echo ""
 echo "\033[0;32m ██╗  ██╗ ██████╗ ██████╗ ███████╗██╗  ██╗ █████╗ ███╗   ███╗███████╗██████╗  █████╗ ████████╗███████╗███╗   ██╗   ███╗   ██╗ ██████╗  \033[0m"
@@ -59,6 +61,10 @@ brew install wget
 brew install mackup
 brew install node
 brew install watchman
+brew install cowsay
+brew install lolcat
+
+cowsay -f stegosaurus Prepare for awesomeness! | lolcat;
 
 # echo "\n\033[0;32m Installing Maid\033[0m"
 # brew install rbenv
@@ -130,6 +136,8 @@ apps=(
   webstorm
 )
 
+cowsay -f dragon-and-cow We are now installing a lot of apps... Hang tight! | lolcat;
+
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
 echo "\n\033[0;32m installing apps with Cask... \033[0m"
@@ -139,6 +147,8 @@ brew cask alfred link
 
 brew cask cleanup
 brew cleanup
+
+cowsay -f bud-frogs Finished installing apps! | lolcat;
 
 # echo "\n\033[0;32m Please setup and sync Dropbox, and then run this script again."
 # read -p "Press [Enter] key after this..."
@@ -315,9 +325,6 @@ cp xkbswitch-macosx/bin/xkbswitch /usr/local/bin
 ./xkbswitch-macosx/bin/xkbswitch -se Dvorak
 #Cleonup
 rm -rf ~/Downloads/xkbswitch-macosx
-
-# Set dark mode
-osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
 
 killall Finder
 
