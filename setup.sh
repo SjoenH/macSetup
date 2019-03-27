@@ -34,7 +34,7 @@ git config --global user.name "Henry Sjøen"
 git config --global user.email henry@kodekameraten.no
 
 echo "\n\033[0;32m Installing brew git utilities...\033[0m"
-brew install git-flow
+brew install git-flow-avh
 
 echo "\n\033[0;32m Installing other brew stuff...\033[0m"
 brew install tree
