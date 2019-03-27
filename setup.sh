@@ -1,3 +1,5 @@
+osascript -e 'tell application "Terminal" to set current settings of window 1 to settings set "pro"'
+clear
 echo ""
 echo "\033[0;32m ██╗  ██╗ ██████╗ ██████╗ ███████╗██╗  ██╗ █████╗ ███╗   ███╗███████╗██████╗  █████╗ ████████╗███████╗███╗   ██╗   ███╗   ██╗ ██████╗  \033[0m"
 echo "\033[0;32m ██║ ██╔╝██╔═══██╗██╔══██╗██╔════╝██║ ██╔╝██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔══██╗╚══██╔══╝██╔════╝████╗  ██║   ████╗  ██║██╔═══██╗ \033[0m"
@@ -6,22 +8,25 @@ echo "\033[0;32m ██╔═██╗ ██║   ██║██║  ██║
 echo "\033[0;32m ██║  ██╗╚██████╔╝██████╔╝███████╗██║  ██╗██║  ██║██║ ╚═╝ ██║███████╗██║  ██║██║  ██║   ██║   ███████╗██║ ╚████║██╗██║ ╚████║╚██████╔╝ \033[0m"
 echo "\033[0;32m ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝  \033[0m"
 echo ""
-echo "\033[0;32m Welcome to my Mac-setup-script \033[0m"
+echo "\033[0;32m Welcome to my Mac-Setup-Script \033[0m"
 echo "\033[0;32m Starting setup... \033[0m"
 echo ""
 
 if [ -e  ~/.ssh/id_rsa.pub ]
 then
-  echo "\n\033[0;32m Public key was found! \033[0m"
+  echo "\033[0;32m Public key was found! \033[0m"
 else
-  echo "\n\033[0;32m Public key was not found \033[0m"
-  echo "\n\033[0;32m Creating an SSH key for you...\033[0m"
+  echo "\033[0;32m Public key was not found. \033[0m"
+  echo "\033[0;32m Creating an SSH key for you...\033[0m"
   ssh-keygen -t rsa
 fi
 
-echo "\n\033[0;32m Please add this public key to Github \n\033[0m"
-echo "\n\033[0;32m https://github.com/account/ssh \n\033[0m"
-read -p "Press [Enter] key after this..."
+pbcopy < ~/.ssh/id_rsa.pub
+echo "\033[0;32m Your ssh-key has been copied to your clipboard.\033[0m"
+echo "\033[0;32m Please add this public key to GitHub/GitLab \033[0m"
+echo "\t\033[0;32m - https://github.com/account/ssh \033[0m"
+echo "\t\033[0;32m - https://gitlab.com/profile/keys \033[0m"
+# read -p "Press [Enter] key after this..."
 
 echo "\n\033[0;32m Installing xcode-stuff \033[0m"
 xcode-select --install
