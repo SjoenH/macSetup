@@ -45,8 +45,10 @@ brew install watchman
 
 npm install -g react-native-cli
 
-
-#@TODO install our custom fonts and stuff
+# install our custom fonts and stuff
+echo "\n\033[0;32m Installing Fira-Code font...\033[0m"
+brew tap caskroom/fonts
+brew cask install font-fira-code
 
 echo "\n\033[0;32m Cleaning up brew\033[0m"
 brew cleanup
