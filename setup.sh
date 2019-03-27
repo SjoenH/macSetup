@@ -153,8 +153,17 @@ cowsay -f bud-frogs Finished installing apps! | lolcat;
 # echo "\n\033[0;32m Please setup and sync Dropbox, and then run this script again."
 # read -p "Press [Enter] key after this..."
 
-# echo "\n\033[0;32m Restoring setup from Mackup..."
-#mackup restore @TODO uncomment
+echo "\n\033[0;32m Restoring setup from Mackup... \033[0m"
+if  [ -e ~/.mackup.cfg ]
+then
+  cowsay You already have an config-for mackup on this computer. | lolcat;
+else
+  echo "[storage]\n\tengine = icloud" > ~/.mackup.cfg;
+fi
+echo "\n\033[0;32m You can find your mackup config here ~/.mackup.cfg \033[0m";
+
+cat ~/.mackup.cfg |lolcat
+mackup restore
 
 echo "\n\033[0;32m Setting some Mac settings... \033[0m"
 
