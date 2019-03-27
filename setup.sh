@@ -162,8 +162,9 @@ else
 fi
 echo "\n\033[0;32m You can find your mackup config here ~/.mackup.cfg \033[0m";
 
-cat ~/.mackup.cfg |lolcat
-mackup restore
+cat ~/.mackup.cfg | lolcat
+# mackup restore
+cowsay -f elephant Remember to run  \"$ mackup restore\" to restore your settings after this setup... | lolcat
 
 echo "\n\033[0;32m Setting some Mac settings... \033[0m"
 
