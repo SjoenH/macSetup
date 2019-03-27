@@ -63,6 +63,8 @@ brew install node
 brew install watchman
 brew install cowsay
 brew install lolcat
+brew install recode
+brew install jshon
 
 cowsay -f stegosaurus Prepare for awesomeness! | lolcat;
 
@@ -107,6 +109,8 @@ curl -L http://install.ohmyz.sh | sh
 echo "\n\033[0;32m Setting up Zsh plugins...\033[0m"
 cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+
+wget "http://api.icndb.com/jokes/random" -qO- | jshon -e value -e joke -u | recode html | cowsay -f tux | lolcat
 
 echo "\n\033[0;32m Setting ZSH as shell...\033[0m"
 chsh -s /bin/zsh
@@ -167,6 +171,7 @@ cat ~/.mackup.cfg | lolcat
 cowsay -f elephant Remember to run  \"$ mackup restore\" to restore your settings after this setup... | lolcat
 
 echo "\n\033[0;32m Setting some Mac settings... \033[0m"
+wget "http://api.icndb.com/jokes/random" -qO- | jshon -e value -e joke -u | recode html | cowsay -f tux | lolcat
 
 #"Disabling system-wide resume"
 # defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
@@ -377,3 +382,5 @@ echo "\033[0;32m ..''.',;:.....,llokK00KK00000KKKK0000Ok,  ..lkKKKKKKKKKXKXXKXXX
 echo "\033[0;32m  ....'','....''',cl0K000000O00KK00OOkxdd.  .;c0KKKKKKKKKKXX0Oxdllcclodk:.oOO \033[0m"
 echo "\033[0;32m ...........',...'.'o0000O000O000000Okolcl.  .loKKXKK0Okxolccccc:ccllloxl.lkx \033[0m"
 echo "\033[0;32m ''',:clc..,::c;.,..;0000000O0OkkO000Okdlo;'d:xcK0ko::lc:;:cccc:::ccclodd.cdo \033[0m"
+
+wget "http://api.icndb.com/jokes/random" -qO- | jshon -e value -e joke -u | recode html | cowsay -f tux | lolcat
