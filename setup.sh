@@ -43,9 +43,16 @@ brew install mackup
 brew install node
 brew install watchman
 
+# echo "\n\033[0;32m Installing Maid\033[0m"
+# brew install rbenv
+# rbenv install 2.6.2
+# rbenv init
+# rbenv shell 2.6.2
+# gem install maid
+
+
 npm install -g react-native-cli
 
-# install our custom fonts and stuff
 echo "\n\033[0;32m Installing Fira-Code font...\033[0m"
 brew tap caskroom/fonts
 brew cask install font-fira-code
